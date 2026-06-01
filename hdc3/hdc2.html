@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validação de Valores</title>
+</head>
+<body>
+    <h2>Digite dois valores</h2>
+
+    <label>Primeiro valor:</label>
+    <input type="number" id="valor1"><br><br>
+
+    <label>Segundo valor:</label>
+    <input type="number" id="valor2"><br><br>
+
+    <button onclick="validar()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function validar() {
+            var v1 = parseInt(document.getElementById("valor1").value);
+            var v2 = parseInt(document.getElementById("valor2").value);
+
+            while (v2 <= 0) {
+                v2 = parseInt(prompt("O segundo valor não pode ser ZERO ou NEGATIVO. Digite novamente:"));
+            }
+
+            document.getElementById("resultado").innerHTML = 
+                "Primeiro valor: " + v1 + "<br>Segundo valor válido: " + v2;
+        }
+    </script>
+</body>
+</html>

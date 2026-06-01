@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Verificar Valor</title>
+</head>
+<body>
+  <h2>Informe um valor:</h2>
+
+  <form>
+    <label>Valor: <input type="number" id="valor" required></label><br><br>
+    <button type="button" onclick="verificar()">Enviar</button>
+  </form>
+
+  <h3>Resultado:</h3>
+  <p id="resultado"></p>
+
+  <script>
+    function verificar() {
+
+      var numero = Number(document.getElementById("valor").value);
+
+      if (numero > 0) {
+        document.getElementById("resultado").innerText = "O valor é positivo.";
+      } else if (numero < 0) {
+        document.getElementById("resultado").innerText = "O valor é negativo.";
+      } else {
+        document.getElementById("resultado").innerText = "O valor é zero.";
+      }
+    }
+  </script>
+</body>
+</html>

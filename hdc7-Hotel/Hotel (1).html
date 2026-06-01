@@ -1,0 +1,121 @@
+<html>
+
+<head>
+
+	<script>
+=
+// CONFIGURAÇÃO DO HOTEL
+
+var nomeHotel = "Hotel Miranha";
+var usuarioLogado = "";
+
+// AUTENTICAÇÃO
+
+function auth() {
+    alert("Bem-vindo ao " + nomeHotel);
+
+    var tentativas = 0;
+
+    while (tentativas < 3) {
+        var nome = prompt("Informe seu nome:");
+        var senha = prompt("Informe sua senha:");
+
+        if (senha == "2678") {
+            usuarioLogado = nome;
+            alert("Bem-vindo ao Hotel " + nomeHotel + ", " + nome + ". É um imenso prazer ter você por aqui!");
+            menu();
+            return;
+        } else {
+            tentativas++;
+            alert("Senha incorreta.");
+        }
+    }
+
+    alert("Sistema bloqueado por excesso de tentativas.");
+}
+
+// MENU PRINCIPAL
+
+function menu() {
+    var escolha = parseInt(prompt(
+        "Menu Principal\n\n" +
+        "1) Reservas de Quartos\n" +
+        "2) Cadastro de Hóspedes\n" +
+        "3) Eventos\n" +
+        "4) Ar-Condicionado\n" +
+        "5) Abastecimento\n" +
+        "6) Relatórios Operacionais\n" +
+        "7) Sair"
+    ));
+
+    switch (escolha) {
+        case 1:
+            reserva_quartos();
+            break;
+        case 2:
+            cadastro_hospedes();
+            break;
+        case 3:
+            alert("Eventos");
+            menu();
+            break;
+        case 4:
+            alert("Ar-Condicionado");
+            menu();
+            break;
+        case 5:
+            abastecer_carros();
+            break;
+        case 6:
+            alert("Relatórios Operacionais");
+            menu();
+            break;
+        case 7:
+            sair();
+            break;
+        default:
+            erro();
+    }
+}
+
+function inicio() {
+    auth();
+}
+
+function reserva_quartos() {
+    alert('HOTEL ' + nomeHotel + ' - RESERVA DE QUARTOS');
+    menu();
+}
+
+function cadastro_hospedes() {
+    alert('HOTEL ' + nomeHotel + ' - CADASTRO DE HÓSPEDES');
+    menu();
+}
+
+function abastecer_carros() {
+    alert('HOTEL ' + nomeHotel + ' - ABASTECIMENTO');
+    menu();
+}
+
+function erro() {
+    alert("Opção inválida.");
+    menu();
+}
+
+function sair() {
+    alert("Muito obrigado e até logo, " + usuarioLogado + ".");
+    window.close();
+}
+
+// INICIAR SISTEMA
+
+inicio();
+
+</script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Verificar Voto</title>
+</head>
+<body>
+  <h2>Informe seu ano de nascimento:</h2>
+
+  <form>
+    <label>Ano de nascimento: <input type="number" id="ano"></label><br><br>
+    <button type="button" onclick="verificar()">Enviar</button>
+  </form>
+
+  <h3>Resultado:</h3>
+  <p id="resultado"></p>
+
+  <script>
+    function verificar() {
+
+      var anoNascimento = Number(document.getElementById("ano").value);
+
+      var anoAtual = new Date().getFullYear();
+
+      var idade = anoAtual - anoNascimento;
+
+      if (idade >= 16) {
+        document.getElementById("resultado").innerText =
+          "Você tem " + idade + " anos. Pode votar este ano!";
+      } else {
+        document.getElementById("resultado").innerText =
+          "Você tem " + idade + " anos. Ainda não pode votar.";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<html>
+
+	<head>
+		<script>
+			// O código é todo modulado por funções para permitir uma organização melhor. 
+		
+			// Uma lista de exemplo que podemos usar sem ter que informar usuários sempre.
+			//var lista_hospedes = ["Gabriel Augusto", "Roberto Gómez Bolaños", "María Antonieta de las Nieves", "Hector Bonilha", "Carlos Villagrán", "Ramón Valdés"]; 
+						
+// NOVA ESTRUTURA DE DADOS
+
+var hospedes_detalhado = [];
+
+// MENU NOVO
+
+function sistema_cadastrar_hospedes() {
+
+    var opcao = parseInt(prompt(
+        "[Cadastro de Hóspedes]\n\n" +
+        "1-Cadastrar\n" +
+        "2-Pesquisar exato\n" +
+        "3-Pesquisar prefixo\n" +
+        "4-Listar\n" +
+        "5-Atualizar\n" +
+        "6-Remover\n" +
+        "7-Voltar"
+    ));
+
+    switch (opcao) {
+        case 1: cadastrar_hospedes(); break;
+        case 2: pesquisar_exato(); break;
+        case 3: pesquisar_prefixo(); break;
+        case 4: listar_hospedes(); break;
+        case 5: atualizar_hospede(); break;
+        case 6: remover_hospede(); break;
+        case 7: return;
+        default:
+            alert("Opção inválida");
+            sistema_cadastrar_hospedes();
+    }
+}
+
+// CADASTRAR
+
+function cadastrar_hospedes() {
+
+    if (hospedes_detalhado.length >= 15) {
+        alert("Máximo de cadastros atingido");
+        sistema_cadastrar_hospedes();
+        return;
+    }
+
+    var nome = prompt("Nome do hóspede:");
+
+    // Verifica duplicado
+    for (var i = 0; i < hospedes_detalhado.length; i++) {
+        if (hospedes_detalhado[i].nome === nome) {
+            alert("Hóspede já cadastrado");
+            sistema_cadastrar_hospedes();
+            return;
+        }
+    }
+
+    var data = new Date();
+
+    hospedes_detalhado.push({
+        nome: nome,
+        data: data.toLocaleString()
+    });
+
+    alert("Operação realizada com sucesso");
+    sistema_cadastrar_hospedes();
+}
+
+// PESQUISA EXATA
+
+function pesquisar_exato() {
+    var nome = prompt("Nome exato:");
+
+    for (var i = 0; i < hospedes_detalhado.length; i++) {
+        if (hospedes_detalhado[i].nome === nome) {
+            alert("Hóspede " + nome + " foi encontrado");
+            sistema_cadastrar_hospedes();
+            return;
+        }
+    }
+
+    alert("Hóspede não encontrado");
+    sistema_cadastrar_hospedes();
+}
+
+// PESQUISA PREFIXO
+
+function pesquisar_prefixo() {
+    var prefixo = prompt("Prefixo:");
+    var resultado = "";
+
+    for (var i = 0; i < hospedes_detalhado.length; i++) {
+        if (hospedes_detalhado[i].nome.toLowerCase().startsWith(prefixo.toLowerCase())) {
+            resultado += "[" + (i + 1) + "] " + hospedes_detalhado[i].nome + "\n";
+        }
+    }
+
+    if (resultado === "") {
+        alert("Hóspede não encontrado");
+    } else {
+        alert("Resultados:\n" + resultado);
+    }
+
+    sistema_cadastrar_hospedes();
+}
+
+// LISTAR
+
+function listar_hospedes() {
+
+    if (hospedes_detalhado.length === 0) {
+        alert("Nenhum hóspede cadastrado");
+        sistema_cadastrar_hospedes();
+        return;
+    }
+
+    // Ordena A-Z
+    var ordenado = [...hospedes_detalhado].sort((a, b) =>
+        a.nome.localeCompare(b.nome)
+    );
+
+    var lista = "";
+
+    for (var i = 0; i < ordenado.length; i++) {
+        lista += "[" + (i + 1) + "] " + ordenado[i].nome +
+                 " (" + ordenado[i].data + ")\n";
+    }
+
+    alert(lista);
+    sistema_cadastrar_hospedes();
+}
+
+// ATUALIZAR
+
+function atualizar_hospede() {
+
+    listar_hospedes();
+
+    var indice = parseInt(prompt("Informe o índice para atualizar:")) - 1;
+
+    if (indice < 0 || indice >= hospedes_detalhado.length) {
+        alert("Índice inválido");
+        sistema_cadastrar_hospedes();
+        return;
+    }
+
+    var novoNome = prompt("Novo nome:");
+
+    hospedes_detalhado[indice].nome = novoNome;
+
+    alert("Operação realizada com sucesso");
+    sistema_cadastrar_hospedes();
+}
+
+// REMOVER
+
+function remover_hospede() {
+
+    listar_hospedes();
+
+    var indice = parseInt(prompt("Informe o índice para remover:")) - 1;
+
+    if (indice < 0 || indice >= hospedes_detalhado.length) {
+        alert("Índice inválido");
+        sistema_cadastrar_hospedes();
+        return;
+    }
+
+    hospedes_detalhado.splice(indice, 1);
+
+    alert("Operação realizada com sucesso");
+    sistema_cadastrar_hospedes();
+}
+		
+		</script>
+	</head>
+
+	<body>
+
+	</body>
+
+</html>

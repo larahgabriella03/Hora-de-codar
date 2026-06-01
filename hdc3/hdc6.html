@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Média dos Alunos</title>
+</head>
+<body>
+    <h2>Calcular média dos alunos</h2>
+    <p id="resultado"></p>
+
+    <script>
+        var aprovados = 0; 
+        var continuar = "S"; 
+
+        while (continuar.toUpperCase() === "S") {
+            var nota1 = parseFloat(prompt("Digite a primeira nota:"));
+            var nota2 = parseFloat(prompt("Digite a segunda nota:"));
+
+            var media = (nota1 + nota2) / 2;
+
+            if (media >= 9.5) {
+                alert("Média: " + media + " - APROVADO");
+                aprovados++;
+            } else {
+                alert("Média: " + media + " - REPROVADO");
+            }
+
+            continuar = prompt("Calcular a média de outro aluno? (S/N)");
+        }
+
+        document.getElementById("resultado").innerHTML = 
+            "Quantidade de alunos aprovados: " + aprovados;
+    </script>
+</body>
+</html>

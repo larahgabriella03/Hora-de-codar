@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Média de 6 notas</title>
+</head>
+<body>
+    <h2>Calcular média de um aluno</h2>
+    <p id="resultado"></p>
+
+    <script>
+        var soma = 0;
+        var totalNotas = 6;
+
+        for (var i = 1; i <= totalNotas; i++) {
+            var nota = parseFloat(prompt("Digite a nota " + i + " (0 a 10):"));
+
+            while (nota < 0 || nota > 10 || isNaN(nota)) {
+                nota = parseFloat(prompt("Valor inválido! Digite novamente a nota " + i + " (0 a 10):"));
+            }
+
+            soma += nota;
+        }
+
+        var media = soma / totalNotas;
+
+        document.getElementById("resultado").innerHTML = 
+            "A média simples das 6 notas é: " + media;
+    </script>
+</body>
+</html>

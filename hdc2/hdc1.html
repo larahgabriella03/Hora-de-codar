@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Maior de Dois Valores</title>
+</head>
+<body>
+  <h2>Informe dois valores:</h2>
+
+  <form>
+    <label>Valor 1: <input type="number" id="v1" required></label><br><br>
+    <label>Valor 2: <input type="number" id="v2" required></label><br><br>
+    <button type="button" onclick="mostrarMaior()">Enviar</button>
+  </form>
+
+  <h3>Resultado:</h3>
+  <p id="resultado"></p>
+
+  <script>
+    function mostrarMaior() {
+      // lê os valores digitados
+      var v1 = Number(document.getElementById("v1").value);
+      var v2 = Number(document.getElementById("v2").value);
+
+      // verifica qual é maior
+      if (v1 > v2) {
+        document.getElementById("resultado").innerText = "O maior valor é: " + v1;
+      } else if (v2 > v1) {
+        document.getElementById("resultado").innerText = "O maior valor é: " + v2;
+      } else {
+        document.getElementById("resultado").innerText = "Os valores são iguais.";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Média Aritmética</title>
+</head>
+<body>
+    <h2>Média dos números de 15 a 100</h2>
+    <p id="resultado"></p>
+
+    <script>
+        var soma = 0;
+        var contador = 0;
+
+        for (var i = 15; i <= 100; i++) {
+            soma += i;       
+            contador++;      
+        }
+
+        var media = soma / contador;
+
+        document.getElementById("resultado").innerHTML = 
+            "A média aritmética é: " + media;
+    </script>
+</body>
+</html>

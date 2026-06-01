@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Valores entre 24 e 42</title>
+</head>
+<body>
+    <h2>Informe 10 valores</h2>
+    <p id="resultado"></p>
+
+    <script>
+        var dentro = 0;  
+        var fora = 0;     
+
+        for (var i = 1; i <= 10; i++) {
+            var valor = parseInt(prompt("Digite o valor " + i + ":"));
+
+            if (valor >= 24 && valor <= 42) {
+                dentro++;
+            } else {
+                fora++;
+            }
+        }
+
+        document.getElementById("resultado").innerHTML = 
+            "Valores dentro do intervalo [24,42]: " + dentro + "<br>" +
+            "Valores fora do intervalo: " + fora;
+    </script>
+</body>
+</html>

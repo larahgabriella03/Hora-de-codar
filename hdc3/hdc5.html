@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Média Aritmética</title>
+</head>
+<body>
+    <h2>Calcular média entre dois números</h2>
+
+    <label>Primeiro número:</label>
+    <input type="number" id="num1"><br><br>
+
+    <label>Segundo número:</label>
+    <input type="number" id="num2"><br><br>
+
+    <button onclick="calcularMedia()">Calcular Média</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function calcularMedia() {
+            var n1 = parseInt(document.getElementById("num1").value);
+            var n2 = parseInt(document.getElementById("num2").value);
+
+            var soma = 0;
+            var contador = 0;
+
+            for (var i = n1; i <= n2; i++) {
+                soma += i;
+                contador++;
+            }
+
+            var media = soma / contador;
+
+            document.getElementById("resultado").innerHTML = 
+                "A média aritmética dos números entre " + n1 + " e " + n2 + " é: " + media;
+        }
+    </script>
+</body>
+</html>

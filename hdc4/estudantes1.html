@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de Estudantes</title>
+</head>
+<body>
+    <h2>Cadastro de Estudantes</h2>
+    <p id="resultado"></p>
+
+    <script>
+        var estudantes = []; // lista de estudantes
+        var nome = "";
+
+        while (true) {
+            nome = prompt("Digite o nome do estudante (ou 'PARE' para encerrar):");
+
+            if (nome.toUpperCase() === "PARE") {
+                break; // encerra o loop
+            }
+
+            estudantes.push(nome); // adiciona o nome na lista
+        }
+
+        var quantidade = estudantes.length;
+
+        var texto = "Quantidade de estudantes cadastrados: " + quantidade + "<br>";
+        texto += "Lista de estudantes:<br>";
+
+        for (var i = 0; i < estudantes.length; i++) {
+            texto += (i + 1) + " - " + estudantes[i] + "<br>";
+        }
+
+        document.getElementById("resultado").innerHTML = texto;
+    </script>
+</body>
+</html>

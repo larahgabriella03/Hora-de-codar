@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verificar Planeta</title>
+</head>
+<body>
+    <h2>Digite o nome de um planeta</h2>
+
+    <input type="text" id="planeta">
+    <button onclick="verificarPlaneta()">Verificar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        
+        var planetas = ["Terra", "Marte", "Plutão", "Vênus", "Júpiter", "Saturno"];
+
+        function verificarPlaneta() {
+            var nome = document.getElementById("planeta").value;
+
+            if (planetas.includes(nome)) {
+                document.getElementById("resultado").innerHTML = 
+                    "O planeta " + nome + " está na lista!";
+            } else {
+                document.getElementById("resultado").innerHTML = 
+                    "O planeta " + nome + " NÃO está na lista.";
+            }
+        }
+    </script>
+</body>
+</html>

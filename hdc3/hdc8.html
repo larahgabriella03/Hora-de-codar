@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Imprimir valores até N</title>
+</head>
+<body>
+    <h2>Digite um valor N</h2>
+
+    <input type="number" id="valorN" min="1">
+    <button onclick="imprimir()">Imprimir</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function imprimir() {
+            var N = parseInt(document.getElementById("valorN").value);
+            var texto = "";
+
+            for (var i = 1; i <= N; i++) {
+                texto += i + " ";
+            }
+
+            document.getElementById("resultado").innerHTML = 
+                "Valores de 1 até " + N + ":<br>" + texto;
+        }
+    </script>
+</body>
+</html>
